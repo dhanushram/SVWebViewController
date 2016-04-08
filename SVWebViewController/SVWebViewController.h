@@ -12,6 +12,8 @@
 - (instancetype)initWithURL:(NSURL*)URL;
 - (instancetype)initWithURLRequest:(NSURLRequest *)request;
 
+@property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, weak) id<UIWebViewDelegate> delegate;
 
++ (void)setWebViewButtonTintColor: (UIColor*) color;
 @end

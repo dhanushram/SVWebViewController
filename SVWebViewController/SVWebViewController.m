@@ -10,6 +10,8 @@
 #import "SVWebViewControllerActivitySafari.h"
 #import "SVWebViewController.h"
 
+static UIColor * buttonTintColor = nil;
+
 @interface SVWebViewController () <UIWebViewDelegate>
 
 @property (nonatomic, strong) UIBarButtonItem *backBarButtonItem;
@@ -18,7 +20,6 @@
 @property (nonatomic, strong) UIBarButtonItem *stopBarButtonItem;
 @property (nonatomic, strong) UIBarButtonItem *actionBarButtonItem;
 
-@property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, strong) NSURLRequest *request;
 
 @end
@@ -77,6 +78,11 @@
     _actionBarButtonItem = nil;
 }
 
++(void)setWebViewButtonTintColor:(UIColor *)color
+{
+    buttonTintColor = color;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     NSAssert(self.navigationController, @"SVWebViewController needs to be contained in a UINavigationController. If you are presenting SVWebViewController modally, use SVModalWebViewController instead.");
     
@@ -127,6 +133,7 @@
                                                               style:UIBarButtonItemStylePlain
                                                              target:self
                                                              action:@selector(goBackTapped:)];
+        _backBarButtonItem.tintColor = buttonTintColor ?:[UIColor darkGrayColor];
         _backBarButtonItem.width = 18.0f;
     }
     return _backBarButtonItem;
