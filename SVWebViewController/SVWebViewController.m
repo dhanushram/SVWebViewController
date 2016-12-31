@@ -145,6 +145,7 @@ static UIColor * buttonTintColor = nil;
                                                                  style:UIBarButtonItemStylePlain
                                                                 target:self
                                                                 action:@selector(goForwardTapped:)];
+        _forwardBarButtonItem.tintColor = buttonTintColor ?:[UIColor darkGrayColor];
         _forwardBarButtonItem.width = 18.0f;
     }
     return _forwardBarButtonItem;
@@ -153,6 +154,7 @@ static UIColor * buttonTintColor = nil;
 - (UIBarButtonItem *)refreshBarButtonItem {
     if (!_refreshBarButtonItem) {
         _refreshBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reloadTapped:)];
+       _refreshBarButtonItem.tintColor = buttonTintColor ?:[UIColor darkGrayColor];
     }
     return _refreshBarButtonItem;
 }
@@ -160,6 +162,7 @@ static UIColor * buttonTintColor = nil;
 - (UIBarButtonItem *)stopBarButtonItem {
     if (!_stopBarButtonItem) {
         _stopBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(stopTapped:)];
+        _stopBarButtonItem.tintColor = buttonTintColor ?:[UIColor darkGrayColor];
     }
     return _stopBarButtonItem;
 }
@@ -167,6 +170,7 @@ static UIColor * buttonTintColor = nil;
 - (UIBarButtonItem *)actionBarButtonItem {
     if (!_actionBarButtonItem) {
         _actionBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonTapped:)];
+        _actionBarButtonItem.tintColor = buttonTintColor ?:[UIColor darkGrayColor];
     }
     return _actionBarButtonItem;
 }

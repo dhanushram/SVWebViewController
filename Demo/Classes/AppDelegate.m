@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "SVWebViewController.h"
 
 
 @implementation AppDelegate
@@ -17,9 +18,12 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [SVWebViewController setWebViewButtonTintColor:[UIColor cyanColor]];
+    
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+    
 
     return YES;
 }
